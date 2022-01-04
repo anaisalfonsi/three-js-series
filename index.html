@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Series</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="text/javascript" src="js/three.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight);
+        document.body.appendChild( renderer.domElement );
+
+        // game logic
+        const update = () => {
+
+        }
+
+        // draw scene
+        const render = () => {
+            renderer.render( scene, camera );
+        }
+
+        // render game loop (update, render, repeat)
+        const GameLoop = () => {
+            requestAnimationFrame( GameLoop );
+
+            update();
+            render();
+        }
+
+        GameLoop();
+    </script>
+</body>
+</html>
